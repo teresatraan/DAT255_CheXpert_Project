@@ -83,15 +83,15 @@ Includes uncertainty labels
 Dataset is not included in this repository.
 
 ### Important Notes
-This project is for educational purposes only
+This project is for educational purposes only.
 The model is not suitable for clinical use
 Predictions should not be used for medical decisions
 
 ### Authors
-Kieu-Mi Teresa Tran
-Laiba Siddiqui Khan
-Victoria Sirisombat Johansen
-Kjetil Andre Moen Eide
+- Kieu-Mi Teresa Tran
+- Laiba Siddiqui Khan
+- Victoria Sirisombat Johansen
+- Kjetil Andre Moen Eide
 
 ## Course
 DAT255 – Deep Learning Engineering
