@@ -52,10 +52,17 @@ DAT255_CheXpert_Project/
 
 ### 1. Install dependencies
 
+#### Windows OS
 ```bash
 pip install tensorflow numpy pillow gradio´
 ```
 
+or 
+
+### Mac OS
+```bash
+python3 -m pip install gradio tensorflow pillow numpy
+```
 
 ### 2.Run the web app: 
 ```bash
