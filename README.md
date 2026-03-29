@@ -33,17 +33,18 @@ We use Convolutional Neural Networks (CNNs), including:
 
 ## Project Structure
 
+## 📁 Project Structure
+
+```bash
 DAT255_CheXpert_Project/
-├── app/ # Gradio web application
-├── data/ # Dataset (not included in repo)
-├── models/ # Saved models (not included in repo)
-├── notebooks/ # Jupyter notebooks for experiments
-├── reports/ # Project report
-├── figures/ # Plots and visualizations
-├── src/ # Optional reusable code
-
-
----
+├── app/        # Gradio web application
+├── data/       # Dataset (not included in repo)
+├── models/     # Saved models (not included in repo)
+├── notebooks/  # Jupyter notebooks for experiments
+├── reports/    # Project report
+├── figures/    # Plots and visualizations
+└── src/        # Optional reusable code
+```
  
 ---
 
