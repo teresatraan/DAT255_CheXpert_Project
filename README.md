@@ -95,11 +95,6 @@ This project is for educational purposes only.
 The model is not suitable for clinical use
 Predictions should not be used for medical decisions
 
-### Authors
-- Kieu-Mi Teresa Tran
-- Laiba Siddiqui Khan
-- Victoria Sirisombat Johansen
-- Kjetil Andre Moen Eide
 
 ## Course
 DAT255 – Deep Learning Engineering
