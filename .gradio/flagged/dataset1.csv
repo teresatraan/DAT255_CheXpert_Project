@@ -1,0 +1,2 @@
+Upload chest X-ray,Predicted conditions,timestamp
+.gradio/flagged/Upload chest X-ray/4927fcc9f973543ff577/Skjermbilde 2026-03-30 kl. 01.52.23.png,"{""label"": ""Pleural Effusion"", ""confidences"": [{""label"": ""Pleural Effusion"", ""confidence"": 0.7628647089004517}, {""label"": ""Atelectasis"", ""confidence"": 0.34547752141952515}, {""label"": ""Consolidation"", ""confidence"": 0.24401314556598663}, {""label"": ""Edema"", ""confidence"": 0.2146257758140564}, {""label"": ""Cardiomegaly"", ""confidence"": 0.13692952692508698}]}",2026-03-30 01:52:36.417023
