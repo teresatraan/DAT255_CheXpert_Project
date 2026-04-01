@@ -113,6 +113,8 @@ DAT255_CheXpert_Project/
 ├── figures/    # Visualizations
 └── src/        # Optional reusable code
 
+```
+
 ---
 
 ## Important Notes
