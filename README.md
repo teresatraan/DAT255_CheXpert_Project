@@ -117,10 +117,17 @@ DAT255_CheXpert_Project/
 
 ---
 
+## Installation
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
 ## Important Notes
 - This project is for educational purposes only
 - It is not suitable for clinical use
 - Predictions must not be used for medical decision-making
+```
 
 ---
 
