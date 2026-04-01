@@ -1,100 +1,126 @@
 # Multi-label Chest X-ray Diagnosis (DAT255)
 
-This project is part of the course **DAT255 – Deep Learning Engineering**.
+This project was developed as part of **DAT255 – Deep Learning Engineering** at the Western Norway University of Applied Sciences (HVL).
 
-We develop a deep learning model for **multi-label classification of chest X-ray images**, using the **CheXpert dataset**. The goal is to automatically detect multiple thoracic conditions from medical images and support diagnostic decision-making.
+The goal of this project is to build a deep learning system for **multi-label classification of chest X-ray images** using the **CheXpert dataset**. The model predicts multiple thoracic conditions from a single image.
 
 ---
 
 ## Problem Description
 
-Chest X-ray interpretation is a complex and time-consuming task. This project aims to build a deep learning model that can:
+Chest X-ray interpretation is a complex and time-consuming task. This project investigates whether deep learning models can assist by automatically identifying multiple findings in radiographs.
+
+The system is designed to:
 
 - Analyze chest X-ray images
-- Predict multiple possible diseases simultaneously (multi-label classification)
-- Provide probability scores for each condition
+- Predict multiple conditions simultaneously (multi-label classification)
+- Output probability scores for each condition
 
 ---
 
-## Model
+## Dataset
 
-We use Convolutional Neural Networks (CNNs), including:
+We use the **CheXpert dataset** from Stanford ML Group:
+
+- 224,000+ chest X-ray images
+- Multi-label annotations
+- Includes uncertainty labels
+
+**Note:** The dataset is **not included** in this repository.
+
+---
+
+## Models
+
+We experiment with several convolutional neural network architectures:
 
 - DenseNet121 (primary model)
 - ResNet50 (comparison)
 - EfficientNetB0 (comparison)
+- A custom baseline CNN trained from scratch
 
-## We apply:
+### Methods used
+
 - Transfer learning
 - Fine-tuning
 - Data preprocessing and normalization
 
 ---
 
-## Project Structure
+## Model Selection
 
-## 📁 Project Structure
+Although multiple models were evaluated, **DenseNet121** was selected as the final deployed model.
+
+While the baseline CNN and ResNet50 achieved competitive or slightly higher validation scores, DenseNet121 was chosen due to:
+
+- strong and consistent performance across labels  
+- robustness and better generalization  
+- widespread use in medical imaging  
+- alignment with architectures used in the CheXpert benchmark  
+
+This makes DenseNet121 a more reliable and interpretable choice for this task.
+
+---
+
+## Deployment Model
+
+The deployed web application uses **DenseNet121**.
+
+The model predicts the following five conditions:
+
+- Atelectasis  
+- Cardiomegaly  
+- Consolidation  
+- Edema  
+- Pleural Effusion  
+
+The output consists of probability scores for each label, using a multi-label classification setup (sigmoid activation).
+
+---
+
+## Evaluation
+
+We evaluate the models using metrics suitable for multi-label classification:
+
+- Accuracy  
+- Precision / Recall  
+- F1-score  
+- ROC-AUC (most important metric)
+
+---
+
+## Web Application
+
+We deploy the model using **Gradio**.
+
+The app allows users to:
+
+- Upload chest X-ray images  
+- View predicted conditions with probabilities  
+- (Optional) Visualize model attention using Grad-CAM  
+
+---
+
+## Project Structure
 
 ```bash
 DAT255_CheXpert_Project/
 ├── app/        # Gradio web application
-├── data/       # Dataset (not included in repo)
-├── models/     # Saved models (not included in repo)
-├── notebooks/  # Jupyter notebooks for experiments
+├── data/       # Dataset (not included)
+├── models/     # Saved models (not included)
+├── notebooks/  # Experiments and training
 ├── reports/    # Project report
-├── figures/    # Plots and visualizations
+├── figures/    # Visualizations
 └── src/        # Optional reusable code
-```
- 
+
 ---
 
-## How to Run:
+## Important Notes
+- This project is for educational purposes only
+- It is not suitable for clinical use
+- Predictions must not be used for medical decision-making
 
-### 1. Install dependencies
-
-#### Windows OS
-```bash
-pip install tensorflow numpy pillow gradio´
-```
-
-or 
-
-### Mac OS
-```bash
-python3 -m pip install gradio tensorflow pillow numpy
-```
-
-### 2.Run the web app: 
-```bash
-python app/app.py
-```
 ---
-
-## Web Application
-We deploy the model using Gradio, allowing users to:
-Upload chest X-ray images
-View predicted conditions with probabilities
-(Optional) Visualize model attention using Grad-CAM
-
-## Evaluation
-We evaluate the model using:
-Accuracy
-Precision / Recall
-F1-score
-ROC-AUC (important for multi-label classification)
-
-## Dataset
-We use the CheXpert dataset from Stanford ML Group:
-224,000+ chest X-ray images
-Multi-label annotations
-Includes uncertainty labels
-Dataset is not included in this repository.
-
-### Important Notes
-This project is for educational purposes only.
-The model is not suitable for clinical use
-Predictions should not be used for medical decisions
-
 
 ## Course
 DAT255 – Deep Learning Engineering
