@@ -6,6 +6,16 @@ The goal of this project is to build a deep learning system for **multi-label cl
 
 ---
 
+## Demo
+
+Try the deployed web application here:
+
+https://huggingface.co/spaces/teresatraan/chexpert-xray-demo
+
+The app allows users to upload a chest X-ray image and receive model predictions directly in the browser.
+
+---
+
 ## Problem Description
 
 Chest X-ray interpretation is a complex and time-consuming task. This project investigates whether deep learning models can assist by automatically identifying multiple findings in radiographs.
