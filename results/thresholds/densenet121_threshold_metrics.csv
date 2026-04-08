@@ -1,0 +1,6 @@
+label,best_threshold,f1,precision,recall
+Atelectasis,0.3408,0.7039,0.6058,0.84
+Cardiomegaly,0.1205,0.5943,0.4771,0.7879
+Consolidation,0.2335,0.5647,0.4528,0.75
+Edema,0.3389,0.6857,0.5714,0.8571
+Pleural Effusion,0.4579,0.7101,0.6622,0.7656
