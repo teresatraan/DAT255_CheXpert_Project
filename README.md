@@ -132,7 +132,7 @@ The app allows users to:
 DAT255_CheXpert_Project/
 ├── app/        # Gradio web application
 ├── data/       # Dataset (not included)
-├── models/     # Saved models (not included)
+├── models/     # Only the best-performing model checkpoints are included
 ├── notebooks/  # Experiments and training
 ├── reports/    # Project report
 ├── figures/    # Visualizations
