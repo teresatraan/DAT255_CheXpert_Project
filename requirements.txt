@@ -1,4 +1,7 @@
-numpy
-gradio
-pillow
 tensorflow
+numpy
+pandas
+matplotlib
+scikit-learn
+pillow
+gradio
