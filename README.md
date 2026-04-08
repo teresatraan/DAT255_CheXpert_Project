@@ -81,7 +81,7 @@ We experiment with several convolutional neural network architectures:
 
 Although multiple models were evaluated, **DenseNet121** was selected as the final deployed model.
 
-While the baseline CNN and ResNet50 achieved competitive or slightly higher validation scores, DenseNet121 was chosen due to:
+Although the baseline CNN achieved the highest validation scores on some metrics, DenseNet121 was selected as the final deployed model due to:
 
 - Strong and consistent performance across labels  
 - Better generalization  
@@ -133,7 +133,7 @@ The app allows users to:
 DAT255_CheXpert_Project/
 ├── app/        # Gradio web application
 ├── data/       # Dataset (not included)
-├── models/     # Only the best-performing model checkpoints are included
+├── models/     # Selected model (baseline included, deployment model not included due to size)
 ├── notebooks/  # Experiments and training
 ├── reports/    # Project report
 ├── figures/    # Visualizations
