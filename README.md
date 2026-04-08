@@ -16,15 +16,34 @@ The app allows users to upload a chest X-ray image and receive model predictions
 
 ---
 
+## Video Demo
+
+Watch a demonstration of the system here:
+
+👉 *insert link*
+
+---
+
+## Key Results
+
+- Best model: **DenseNet121 (transfer learning)**
+- Task: Multi-label classification (5 conditions)
+- Evaluation metric: **ROC-AUC (primary)**
+- Additional metrics: Precision, Recall, F1-score
+
+DenseNet121 was selected due to it´s strong and consistent performance, robustness, and suitability for medical imaging tasks.
+
+---
+
 ## Problem Description
 
 Chest X-ray interpretation is a complex and time-consuming task. This project investigates whether deep learning models can assist by automatically identifying multiple findings in radiographs.
 
 The system is designed to:
 
-- Analyze chest X-ray images
-- Predict multiple conditions simultaneously (multi-label classification)
-- Output probability scores for each condition
+- Analyze chest X-ray images  
+- Predict multiple conditions simultaneously (multi-label classification)  
+- Output probability scores for each condition  
 
 ---
 
@@ -32,9 +51,9 @@ The system is designed to:
 
 We use the **CheXpert dataset** from Stanford ML Group:
 
-- 224,000+ chest X-ray images
-- Multi-label annotations
-- Includes uncertainty labels
+- 224,000+ chest X-ray images  
+- Multi-label annotations  
+- Includes **uncertain labels**  
 
 **Note:** The dataset is **not included** in this repository.
 
@@ -44,16 +63,16 @@ We use the **CheXpert dataset** from Stanford ML Group:
 
 We experiment with several convolutional neural network architectures:
 
-- DenseNet121 (primary model)
+- **DenseNet121** (final model)
 - ResNet50 (comparison)
 - EfficientNetB0 (comparison)
-- A custom baseline CNN trained from scratch
+- Custom baseline CNN (trained from scratch)
 
 ### Methods used
 
-- Transfer learning
-- Fine-tuning
-- Data preprocessing and normalization
+- Transfer learning  
+- Fine-tuning  
+- Data preprocessing and normalization  
 
 ---
 
@@ -63,28 +82,10 @@ Although multiple models were evaluated, **DenseNet121** was selected as the fin
 
 While the baseline CNN and ResNet50 achieved competitive or slightly higher validation scores, DenseNet121 was chosen due to:
 
-- strong and consistent performance across labels  
-- robustness and better generalization  
-- widespread use in medical imaging  
-- alignment with architectures used in the CheXpert benchmark  
-
-This makes DenseNet121 a more reliable and interpretable choice for this task.
-
----
-
-## Deployment Model
-
-The deployed web application uses **DenseNet121**.
-
-The model predicts the following five conditions:
-
-- Atelectasis  
-- Cardiomegaly  
-- Consolidation  
-- Edema  
-- Pleural Effusion  
-
-The output consists of probability scores for each label, using a multi-label classification setup (sigmoid activation).
+- Strong and consistent performance across labels  
+- Better generalization  
+- Proven effectiveness in medical imaging  
+- Alignment with architectures used in the CheXpert benchmark  
 
 ---
 
@@ -95,19 +96,33 @@ We evaluate the models using metrics suitable for multi-label classification:
 - Accuracy  
 - Precision / Recall  
 - F1-score  
-- ROC-AUC (most important metric)
+- **ROC-AUC (primary metric)**  
+
+---
+
+## Project Workflow
+
+Run the notebooks in the following order:
+
+1. `01_setup_and_data_overview.ipynb`
+2. `02_preprocessing_and_data_pipeline.ipynb`
+3. `03_model_training_baselines.ipynb`
+4. `04_transfer_learning_densenet121.ipynb`
+5. `05_transfer_learning_resnet50.ipynb`
+6. `06_model_interpretability.ipynb`
+7. `07_transfer_learning_efficientnetb0.ipynb`
 
 ---
 
 ## Web Application
 
-We deploy the model using **Gradio**.
+The model is deployed using **Gradio** and hosted on **Hugging Face Spaces**.
 
 The app allows users to:
 
 - Upload chest X-ray images  
 - View predicted conditions with probabilities  
-- (Optional) Visualize model attention using Grad-CAM  
+- Visualize model attention using Grad-CAM  
 
 ---
 
@@ -121,26 +136,29 @@ DAT255_CheXpert_Project/
 ├── notebooks/  # Experiments and training
 ├── reports/    # Project report
 ├── figures/    # Visualizations
-└── src/        # Optional reusable code
-
+└── src/        # Reusable code
 ```
 
 ---
-
 ## Installation
 
 Install dependencies:
 
 ```bash
 pip install -r requirements.txt
-## Important Notes
-- This project is for educational purposes only
-- It is not suitable for clinical use
-- Predictions must not be used for medical decision-making
 ```
 
 ---
 
+## Important Notes
+
+This project is for educational purposes only
+It is not suitable for clinical use
+Predictions must not be used for medical decision-making
+
+---
+
 ## Course
+
 DAT255 – Deep Learning Engineering
 Western Norway University of Applied Sciences (HVL)
