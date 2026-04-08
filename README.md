@@ -68,6 +68,7 @@ We experiment with several convolutional neural network architectures:
 - EfficientNetB0 (comparison)
 - Custom baseline CNN (trained from scratch)
 
+
 ### Methods used
 
 - Transfer learning  
@@ -87,7 +88,7 @@ While the baseline CNN and ResNet50 achieved competitive or slightly higher vali
 - Proven effectiveness in medical imaging  
 - Alignment with architectures used in the CheXpert benchmark  
 
----
+--- 
 
 ## Evaluation
 
