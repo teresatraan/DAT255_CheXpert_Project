@@ -26,12 +26,10 @@ Watch a demonstration of the system here:
 
 ## Key Results
 
-- Best model: **DenseNet121 (transfer learning)**
+- Final model: **DenseNet121 (transfer learning)**
 - Task: Multi-label classification (5 conditions)
-- Evaluation metric: **ROC-AUC (primary)**
+- Primary metric: **ROC-AUC**
 - Additional metrics: Precision, Recall, F1-score
-
-DenseNet121 was selected due to it´s strong and consistent performance, robustness, and suitability for medical imaging tasks.
 
 ---
 
@@ -63,32 +61,59 @@ We use the **CheXpert dataset** from Stanford ML Group:
 
 We experiment with several convolutional neural network architectures:
 
-- **DenseNet121** (final model)
+- **DenseNet121** (final + deployed model)
 - ResNet50 (comparison)
 - EfficientNetB0 (comparison)
 - Custom baseline CNN (trained from scratch)
-
 
 ### Methods used
 
 - Transfer learning  
 - Fine-tuning  
 - Data preprocessing and normalization  
+- Threshold tuning for multi-label prediction  
 
 ---
 
 ## Model Selection
 
-Although multiple models were evaluated, **DenseNet121** was selected as the final deployed model.
+Although multiple models were evaluated, **DenseNet121** was selected as the final and deployed model.
 
-Although the baseline CNN achieved the highest validation scores on some metrics, DenseNet121 was selected as the final deployed model due to:
+It is important to note:
 
-- Strong and consistent performance across labels  
-- Better generalization  
-- Proven effectiveness in medical imaging  
-- Alignment with architectures used in the CheXpert benchmark  
+- The **Baseline CNN achieved the best validation scores on some metrics** (e.g. ROC-AUC and validation loss)
+- However, **DenseNet121 was chosen deliberately**, based on a broader engineering and domain-specific assessment
 
---- 
+### Why DenseNet121?
+
+The decision was based on several factors:
+
+- **Architecture suited for medical imaging**  
+  DenseNet reuses features across layers, which is beneficial for detecting subtle patterns in chest X-rays.
+
+- **Transfer learning advantage**  
+  Pretraining provides a stronger starting point than a model trained from scratch.
+
+- **Small performance differences**  
+  The gap between models is relatively small, meaning model choice should not rely solely on a single validation metric.
+
+- **Better alignment with deployment pipeline**  
+  The entire inference system is built around DenseNet121:
+  - preprocessing uses `keras.applications.densenet.preprocess_input`
+  - the deployed model is `densenet121_finetuned_best.keras`
+  - class-specific thresholds are tuned specifically for this model
+
+- **End-to-end system consistency**  
+  DenseNet121 is the model for which the full pipeline (training → evaluation → thresholding → deployment) is most complete and consistent.
+
+- **Relevance to domain and literature**  
+  DenseNet architectures are commonly used in medical imaging tasks, including the original CheXpert benchmark.
+
+### Summary
+
+The final model choice reflects a **trade-off between performance, robustness, domain suitability, and deployment consistency**, rather than selecting the model with the highest score on a single metric.
+
+---
 
 ## Evaluation
 
@@ -123,6 +148,8 @@ The app allows users to:
 
 - Upload chest X-ray images  
 - View predicted conditions with probabilities  
+- Generate human-readable decision summaries  
+- Apply **threshold-based classification logic**  
 - Visualize model attention using Grad-CAM  
 
 ---
@@ -132,21 +159,23 @@ The app allows users to:
 ```bash
 DAT255_CheXpert_Project/
 ├── app/        # Gradio web application
-├── data/       # Dataset (not included)
-├── models/     # Selected model (baseline included, deployment model not included due to size)
+├── models/     # Saved models and notes
 ├── notebooks/  # Experiments and training
-├── reports/    # Project report
+├── results/    # Evaluation outputs and comparisons
 ├── figures/    # Visualizations
-└── src/        # Reusable code
+├── README.md
+└── requirements.txt
 ```
 
 ---
+
 ## Installation
 
 Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+
 ```
 
 ---
@@ -163,3 +192,5 @@ Predictions must not be used for medical decision-making
 
 DAT255 – Deep Learning Engineering
 Western Norway University of Applied Sciences (HVL)
+
+
