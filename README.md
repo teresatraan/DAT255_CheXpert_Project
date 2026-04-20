@@ -10,7 +10,7 @@ The goal of this project is to build a deep learning system for **multi-label cl
 
 Try the deployed web application here:
 
-https://huggingface.co/spaces/teresatraan/chexpert-xray-demo
+[deployed web application](https://huggingface.co/spaces/teresatraan/chexpert-xray-demo)
 
 The app allows users to upload a chest X-ray image and receive model predictions directly in the browser.
 
