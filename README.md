@@ -20,7 +20,7 @@ The app allows users to upload a chest X-ray image and receive model predictions
 
 Watch a demonstration of the system here:
 
- [Watch the demo video](https://youtu.be/fPE2sQRADvQ)
+ [Watch the demo video](https://www.youtube.com/watch?v=fPE2sQRADvQ)
 
 ---
 
